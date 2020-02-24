@@ -1,0 +1,19 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "This is me having fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdutk007/react-tutorial.git"
+  },
+  "author": "Gianfranco Dutka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gdutk007/react-tutorial/issues"
+  },
+  "homepage": "https://github.com/gdutk007/react-tutorial#readme"
+}
