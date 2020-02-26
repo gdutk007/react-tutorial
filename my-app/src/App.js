@@ -1,31 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {  Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import Footer from './components/Footer'
+import Navbar from './components/Navbar'
+import MyNavbar from './components/Navbar'
+import Main from './components/Main'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+// now work on some things individually, this needs some style....
+
+function MyApp(){
+  return(
+    <div>
+      <MyNavbar/> 
+      <Main/>
+      <Footer/>
+    </div>
+  )
 }
 
-export default App;
 
-class BODY extends Component {
-  render() {
-    return (
-        <div> <p>  <h2> Welcome to React</h2> </p>  </div>
-    );
-  }
-}
-
-export {BODY};
+export default MyApp;
