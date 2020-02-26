@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 function Footer(){
     const styles = {
         color: "#FF8C00",

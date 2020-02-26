@@ -2,6 +2,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import MyApp from './App'
+import MyApp, {MyApp2} from './App'
 
-ReactDOM.render(<MyApp/>, document.getElementById('testing2') )
+
+
+ReactDOM.render(<MyApp2/>, document.getElementById('testing1') )
+
+// ReactDOM.render(<MyApp/>, document.getElementById('testing2') )
