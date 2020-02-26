@@ -1,9 +1,15 @@
 import React from 'react'
 
 function MyNavbar(){
+   
+    const styles = {
+        color: "#FF8C00",
+        backgroundColor: "black"
+    }
+
     return(
-        <div>
-            <nav>
+        <div >
+            <nav style={styles}>
                 <ul>
                     <li> About Me </li>
                 </ul>
