@@ -34,6 +34,8 @@ const productData = [
         name: "rubber duckies",
         price: 3.50,
         description: "whatever"
-    },
+    }
 
 ]
+
+export default productData

@@ -8,6 +8,7 @@ import TodoItem from './components/TodoItem'
 import Checkboxes from './components/Checkboxes'
 import ContactCard from './components/ContactCard'
 import Joke from './components/Joke'
+import MyList from './components/MyList'
 // now work on some things individually, this needs some style....
 
 const URL = "https://icatcare.org/app/uploads/2018/07/Helping-your-new-cat-or-kitten-settle-in-1.png"
@@ -16,6 +17,9 @@ const URL = "https://icatcare.org/app/uploads/2018/07/Helping-your-new-cat-or-ki
 function MyApp2(){
   return (
     <div> 
+
+     <MyList/>
+
       <Joke
         content = {{Question: "this is the question", Punchline: "Here is the punchline"}}
       />
