@@ -18,9 +18,11 @@ function Joke(props){
 
     return(
         <div>
+            <br/>
             <h1> JOKE </h1>
-            <h3> {question} </h3>
+            <h3 style={{display: !props.content.Question && "none"}} > {question} </h3>
             <p>  {answer}  </p>
+            <hr/>
         </div>
     )
 }

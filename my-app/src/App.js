@@ -15,8 +15,7 @@ const URL = "https://icatcare.org/app/uploads/2018/07/Helping-your-new-cat-or-ki
 
 function MyApp2(){
   return (
-    <div>
-      <h1> THIS IS A TEST </h1> 
+    <div> 
       <Joke
         content = {{Question: "this is the question", Punchline: "Here is the punchline"}}
       />
