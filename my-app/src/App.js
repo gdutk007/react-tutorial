@@ -20,14 +20,19 @@ class App extends React.Component {
   constructor(){
     super()
     this.state={
-      answer: "yes"
+      isloggedin: true
     }
   }
 
   render(){
+    let status = "out"
+    if(this.state.isloggedin){
+      status = "in"
+    }
     return (
       <div>
-        <h1> Is state important to know? {this.state.answer} </h1>
+        <h1> You are currently logged (in/out) </h1> <br/>
+        <h1> {status} </h1>
       </div>
     )
   }
