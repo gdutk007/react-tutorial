@@ -9,15 +9,40 @@ import Checkboxes from './components/Checkboxes'
 import ContactCard from './components/ContactCard'
 import Joke from './components/Joke'
 import MyList from './components/MyList'
+import todosData from './data/ToDoData'
 // now work on some things individually, this needs some style....
 
 const URL = "https://icatcare.org/app/uploads/2018/07/Helping-your-new-cat-or-kitten-settle-in-1.png"
 
 
+class App extends React.Component {
+
+  constructor(){
+    super()
+    this.state={
+      answer: "yes"
+    }
+  }
+
+  render(){
+    return (
+      <div>
+        <h1> Is state important to know? {this.state.answer} </h1>
+      </div>
+    )
+  }
+}
+export {App}
+
 function MyApp2(){
+
+  const Item = todosData.map(task => {
+    return <TodoItem task={task} />
+  })
+
   return (
     <div> 
-
+     {Item}
      <MyList/>
 
       <Joke

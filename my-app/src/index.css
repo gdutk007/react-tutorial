@@ -24,6 +24,8 @@ background-color: whitesmoke;}
     }
 
 .todo-item {
+       /* text-align: justify;  /* For Edge */
+       /* text-align-last: right; */ 
        display: flex;
        justify-content: flex-start;
        align-items: center;
