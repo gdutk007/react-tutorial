@@ -1,113 +1,50 @@
 import React, {  Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
-import Footer from './components/Footer'
-import MyNavbar from './components/Navbar'
-import Main from './components/Main'
 import TodoItem from './components/TodoItem'
-import Checkboxes from './components/Checkboxes'
-import ContactCard from './components/ContactCard'
-import Joke from './components/Joke'
-import MyList from './components/MyList'
+import productData from './data/vschoolProducts'
 import todosData from './data/ToDoData'
-// now work on some things individually, this needs some style....
-
-const URL = "https://icatcare.org/app/uploads/2018/07/Helping-your-new-cat-or-kitten-settle-in-1.png"
 
 
-class App extends React.Component {
 
+class App extends React.Component{
   constructor(){
     super()
     this.state={
-      isloggedin: true
+      todos: todosData
     }
+    this.handleChange = this.handleChange.bind(this)
   }
+
+  handleChange(id){
+    this.setState(prevstate => {
+        const updatedtodos = prevstate.todos.map(todo=>{
+          if(todo.id === id){
+            todo.completed = !todo.completed 
+          }
+          return todo
+        })
+        return { todos: updatedtodos}
+      })  
+  }
+
+  
 
   render(){
-    let status = "out"
-    if(this.state.isloggedin){
-      status = "in"
-    }
+
+    let todo_items = this.state.todos.map((item) => {
+      return <TodoItem task={item} handle={this.handleChange}/>
+     }) 
+
     return (
       <div>
-        <h1> You are currently logged (in/out) </h1> <br/>
-        <h1> {status} </h1>
+        <h1> Dump the quaaludesss brooo </h1>
+        {todo_items}
+        <h1>  </h1>
       </div>
-    )
+    )  
   }
+
 }
+
 export {App}
-
-function MyApp2(){
-
-  const Item = todosData.map(task => {
-    return <TodoItem task={task} />
-  })
-
-  return (
-    <div> 
-     {Item}
-     <MyList/>
-
-      <Joke
-        content = {{Question: "this is the question", Punchline: "Here is the punchline"}}
-      />
-      <Joke
-        content = {{}}
-      />
-      <Joke
-        content = {{Question: "this is the question", Punchline: "Here is the punchline"}}
-      />
-    </div>
-  )
-}
-
-export {MyApp2}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function MyApp(){
-  return(
-    <div>
-      <main >
-      <body className="stackbackground">
-      <MyNavbar/> 
-      <Main/>
-      <Checkboxes/>
-      <ContactCard
-      contact = {{name: "whiskers", imgURL: URL, phone: "7867638187",email: "myemail@gmail.com"}}
-            />
-      <ContactCard
-      contact = {{name: "whiskers", imgURL: URL, phone: "7867638187",email: "myemail@gmail.com"}}
-            />
-      <ContactCard
-      contact = {{name: "whiskers", imgURL: URL, phone: "7867638187",email: "myemail@gmail.com"}}
-            />
-
-      <Footer/>
-      </body>
-
-      </main>
-    </div>
-  )
-}
-
-
-export default MyApp;
