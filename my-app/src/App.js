@@ -4,17 +4,27 @@ import './App.css'
 import TodoItem from './components/TodoItem'
 import productData from './data/vschoolProducts'
 import todosData from './data/ToDoData'
-
-
+import Navbar from './components/Navbar'
+import Conditional from './components/Conditional'
 
 class App extends React.Component{
   constructor(){
     super()
     this.state={
-      todos: todosData
+      todos: todosData,
+      isLoading: false
     }
     this.handleChange = this.handleChange.bind(this)
   }
+
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({
+        isLoading : true
+      })
+    }, 1500)
+  }
+
 
   handleChange(id){
     this.setState(prevstate => {
@@ -27,20 +37,18 @@ class App extends React.Component{
         return { todos: updatedtodos}
       })  
   }
-
-  
-
   render(){
 
     let todo_items = this.state.todos.map((item) => {
       return <TodoItem task={item} handle={this.handleChange}/>
-     }) 
+      }) 
 
     return (
       <div>
-        <h1> Dump the quaaludesss brooo </h1>
+        <Navbar/>
         {todo_items}
-        <h1>  </h1>
+        {(this.state.isLoading) ? <h1> Conditional Statement !</h1> : <h1>LOADING...</h1>}         
+        <h1> Some other stuff! </h1>
       </div>
     )  
   }
