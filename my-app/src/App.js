@@ -87,41 +87,81 @@ import Conditional from './components/Conditional'
 
 
 
+// class App extends React.Component{
+//   constructor(){
+//     super()
+//     this.state={
+//       isDone: false,
+//       todos:  todosData
+//     }
+//     this.handleCheck = this.handleCheck.bind(this)
+//   }
+  
+//   handleCheck(id){
+//     // we will do things here
+//     this.setState((prevState)=>{
+//       const updatedList = prevState.todos.map((todo)=>{
+//         if(id === todo.id){
+//           todo.completed = !todo.completed
+//         }
+//         return todo
+//       })
+      
+//       return{todos: updatedList}
+//     })
+//   }
+  
+//   render(){  
+//     let tasks = this.state.todos.map(task=>{return(<TodoItem task={task} handle={this.handleCheck}/>)})
+//     return(
+//       <div>
+//         {tasks}
+//       </div>
+//     )
+//   }
+
+// }
+
 class App extends React.Component{
   constructor(){
     super()
     this.state={
-      isDone: false,
-      todos:  todosData
+      character: {},
+      isLoading: false
     }
-    this.handleCheck = this.handleCheck.bind(this)
   }
-  
-  handleCheck(id){
-    // we will do things here
-    this.setState((prevState)=>{
-      const updatedList = prevState.todos.map((todo)=>{
-        if(id === todo.id){
-          todo.completed = !todo.completed
-        }
-        return todo
-      })
-      
-      return{todos: updatedList}
-    })
+
+  componentDidMount(){
+    this.setState({isLoading : true})
+
+    fetch("https://swapi.co/api/people/1")
+        .then(response=> response.json())
+        .then(data=>{
+          this.setState(prevState=>{
+            prevState.character = data
+            return {character: prevState.character,
+                    isLoading: false}
+          })
+        })
   }
-  
-  render(){  
-    let tasks = this.state.todos.map(task=>{return(<TodoItem task={task} handle={this.handleCheck}/>)})
+
+  render(){
+
+    let name = this.state.character.name
+    let height = this.state.character.height
+    let birth_year = this.state.character.birth_year
+    let mass = this.state.character.mass
+
+    let text = this.state.isLoading ? "Its Loading!" : name
+
     return(
       <div>
-        {tasks}
-      </div>
+        <h1>This is a header! </h1>
+        <h1>{text}</h1>
+    </div>
     )
   }
-
 }
-
 
 
 export {App}
