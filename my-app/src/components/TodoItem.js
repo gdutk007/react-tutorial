@@ -12,7 +12,8 @@ function TodoItem(props){
               name="box"checked={props.task.completed}
               onChange={ () => props.handle(props.task.id) }
               />
-              <label for="box">{props.task.text}</label>
+              {(props.task.completed)?<strike><label for="box">{props.task.text}</label> </strike>
+              : <label for="box">{props.task.text}</label> }
 
         </div>
     )
