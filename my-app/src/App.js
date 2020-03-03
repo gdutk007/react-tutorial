@@ -122,46 +122,104 @@ import Conditional from './components/Conditional'
 
 // }
 
+// class App extends React.Component{
+//   constructor(){
+//     super()
+//     this.state={
+//       character: {},
+//       isLoading: false
+//     }
+//   }
+
+//   componentDidMount(){
+//     this.setState({isLoading : true})
+
+//     fetch("https://swapi.co/api/people/1")
+//         .then(response=> response.json())
+//         .then(data=>{
+//           this.setState(prevState=>{
+//             prevState.character = data
+//             return {character: prevState.character,
+//                     isLoading: false}
+//           })
+//         })
+//   }
+
+//   render(){
+
+//     let name = this.state.character.name
+//     let height = this.state.character.height
+//     let birth_year = this.state.character.birth_year
+//     let mass = this.state.character.mass
+
+//     let text = this.state.isLoading ? "Its Loading!" : name
+
+//     return(
+//       <div>
+//         <h1>This is a header! </h1>
+//         <h1>{text}</h1>
+//     </div>
+//     )
+//   }
+// }
+
+
 class App extends React.Component{
   constructor(){
     super()
     this.state={
-      character: {},
-      isLoading: false
+      // state memebers
+      firstName: "billy",
+      lastName: "bob",
+      isFriendly: false,
+      textArea: "some default text"
     }
+    this.handle = this.handle.bind(this)
   }
 
-  componentDidMount(){
-    this.setState({isLoading : true})
-
-    fetch("https://swapi.co/api/people/1")
-        .then(response=> response.json())
-        .then(data=>{
-          this.setState(prevState=>{
-            prevState.character = data
-            return {character: prevState.character,
-                    isLoading: false}
-          })
-        })
+  handle(event){
+     const {name, value, type, checked} = event.target
+    // alert("the name is " + [name] + " and " + [checked]  )
+     type === "checkbox" ?  this.setState( {[name]: checked} ) : this.setState({[name]: value}) 
   }
 
   render(){
-
-    let name = this.state.character.name
-    let height = this.state.character.height
-    let birth_year = this.state.character.birth_year
-    let mass = this.state.character.mass
-
-    let text = this.state.isLoading ? "Its Loading!" : name
-
-    return(
+    return (
       <div>
-        <h1>This is a header! </h1>
-        <h1>{text}</h1>
-    </div>
+        <form>
+          <input 
+          type="text"
+          value={this.state.firstName} 
+          name="firstName" 
+          placeholder="First"
+          onChange={this.handle} />
+        <br/>
+        <input 
+          type="text" 
+          value={this.state.lastName}
+          name="lastName" 
+          placeholder="Last"
+          onChange={this.handle} />
+          <h1>{this.state.firstName }
+            { this.state.lastName}</h1>
+
+            <textarea
+            name="textArea"
+            value={this.state.textArea}
+            onChange={this.handle}/>
+            <br/>
+            <label>
+              <input
+              type="checkbox"
+              name="isFriendly"
+              checked={this.state.isFriendly}
+              onChange={this.handle}/>
+              Is it friendly?</label>
+        </form>
+      </div>
     )
   }
-}
 
+}
 
 export {App}
