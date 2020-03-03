@@ -280,7 +280,12 @@ class App extends React.Component{
   }
 
   handleSubmit(event){
-      alert("Data submitted!")
+    // make sure to display the dietary restrictions correctly!
+      alert("Data has been Submitted:\n" +this.state.firstName + "\n"+
+            this.state.lastName + "\n" +
+            this.state.gender +"\n" +
+            this.state.Age + "\n" + 
+            this.state.location + "\n" )
   }
 
   handleCheck(id){
