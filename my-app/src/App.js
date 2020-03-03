@@ -280,7 +280,7 @@ class App extends React.Component{
   }
 
   handleSubmit(event){
-      
+      alert("Data submitted!")
   }
 
   handleCheck(id){
@@ -308,7 +308,9 @@ class App extends React.Component{
     return(
       <div>
         <h1> This is a test! </h1>
-        <form>
+        <form
+        onSubmit={this.handleSubmit}
+        >
 
           <input
             name="firstName"
@@ -364,6 +366,7 @@ class App extends React.Component{
           <br/>
            {restrictions}
           <hr/>
+          <button> Submit </button>
         </form>
       </div>
     )
