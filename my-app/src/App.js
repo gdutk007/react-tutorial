@@ -7,6 +7,7 @@ import todosData from './data/ToDoData'
 import Navbar from './components/Navbar'
 import Conditional from './components/Conditional'
 import foodOptions from './data/ToDoData'
+import FormComponent from './components/FormComponent'
 
 // componentDidMount(){
 //   setTimeout(()=>{
@@ -263,7 +264,7 @@ class App extends React.Component{
       firstName: "",
       lastName: "",
       gender: "",
-      Age: 0,
+      Age: "",
       location: "",
       dietaryRestriction: foodOptions
     }
@@ -312,67 +313,14 @@ class App extends React.Component{
   
     return(
       <div>
-        <h1> This is a test! </h1>
-        <form
-        onSubmit={this.handleSubmit}
-        >
-
-          <input
-            name="firstName"
-            value={this.state.firstName}
-            placeholder="First Name"
-            onChange={this.handleOnChange}
-          />
-          <br/>
-          <input
-            name="lastName"
-            value={this.state.lastName}
-            placeholder="Last Name"
-            onChange={this.handleOnChange}
-          />
-          <br/>
-
-          <input
-            name="Age"
-            value={this.state.Age}
-            placeholder="Age"
-            onChange={this.handleOnChange}
-          />
-          <br/>
-
-          <select
-            onChange={this.handleOnChange}
-            value={this.state.location}
-            name="location"
-          >
-            <option  value="Italy">   Italy </option>
-            <option  value="China">   China</option>
-            <option  value="Alaska">  Alaska</option>
-          </select>
-          <br/>
-          <label>
-          <input
-          type="radio"
-          checked={this.state.gender==="male"}
-          name="gender"
-          value="male"
-          onChange={this.handleOnChange}
-          /> Male</label>
-
-          <br/>
-          <label>
-          <input
-          type="radio"
-          checked={this.state.gender==="female"}
-          name="gender"
-          value="female"
-          onChange={this.handleOnChange}
-          /> Female</label>
-          <br/>
-           {restrictions}
-          <hr/>
-          <button> Submit </button>
-        </form>
+        <h1>This is a test</h1>
+        <FormComponent
+        data={this.state}
+        handleOnChange={this.handleOnChange}
+        handleSubmit={this.handleSubmit}
+        handleCheck={this.handleCheck}
+        restrictions={this.restrictions}
+        />
       </div>
     )
   }
