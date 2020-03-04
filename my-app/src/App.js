@@ -8,7 +8,8 @@ import Navbar from './components/Navbar'
 import Conditional from './components/Conditional'
 import foodOptions from './data/ToDoData'
 import FormComponent from './components/FormComponent'
-
+import Header from './components/Header'
+import Memegenerator from './components/Memegenerator'
 // componentDidMount(){
 //   setTimeout(()=>{
 //     this.setState({
@@ -257,76 +258,76 @@ import FormComponent from './components/FormComponent'
 // }
 
 
-class App extends React.Component{
-  constructor(){
-    super()
-    this.state={
-      firstName: "",
-      lastName: "",
-      gender: "",
-      Age: "",
-      location: "",
-      dietaryRestriction: foodOptions
-    }
-    this.handleOnChange = this.handleOnChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleCheck = this.handleCheck.bind(this)
-  }
+// class App extends React.Component{
+//   constructor(){
+//     super()
+//     this.state={
+//       firstName: "",
+//       lastName: "",
+//       gender: "",
+//       Age: "",
+//       location: "",
+//       dietaryRestriction: foodOptions
+//     }
+//     this.handleOnChange = this.handleOnChange.bind(this)
+//     this.handleSubmit = this.handleSubmit.bind(this)
+//     this.handleCheck = this.handleCheck.bind(this)
+//   }
 
-  handleOnChange(event){
-      const {name, type, value, checked} = event.target
-//      alert("we got to the callback")
-        this.setState({[name]: value})
+//   handleOnChange(event){
+//       const {name, type, value, checked} = event.target
+// //      alert("we got to the callback")
+//         this.setState({[name]: value})
             
-  }
+//   }
 
-  handleSubmit(event){
-    // make sure to display the dietary restrictions correctly!
-      alert("Data has been Submitted:\n" +this.state.firstName + "\n"+
-            this.state.lastName + "\n" +
-            this.state.gender +"\n" +
-            this.state.Age + "\n" + 
-            this.state.location + "\n" )
-  }
+//   handleSubmit(event){
+//     // make sure to display the dietary restrictions correctly!
+//       alert("Data has been Submitted:\n" +this.state.firstName + "\n"+
+//             this.state.lastName + "\n" +
+//             this.state.gender +"\n" +
+//             this.state.Age + "\n" + 
+//             this.state.location + "\n" )
+//   }
 
-  handleCheck(id){
+//   handleCheck(id){
       
-      this.setState(prevstate =>{
-        const updated = prevstate.dietaryRestriction.map(item=>{
-          if(item.id === id){
-            item.canEat = !item.canEat
-          }
-          return item
-        })
-        return{dietaryRestriction: updated}
-      })
+//       this.setState(prevstate =>{
+//         const updated = prevstate.dietaryRestriction.map(item=>{
+//           if(item.id === id){
+//             item.canEat = !item.canEat
+//           }
+//           return item
+//         })
+//         return{dietaryRestriction: updated}
+//       })
       
-  }
+//   }
 
-  render(){
+//   render(){
 
-    let restrictions = this.state.dietaryRestriction.map((res)=>{
-        return(
-          <TodoItem task={res} handle={this.handleCheck}/>
-        )
-    })
+//     let restrictions = this.state.dietaryRestriction.map((res)=>{
+//         return(
+//           <TodoItem task={res} handle={this.handleCheck}/>
+//         )
+//     })
   
-    return(
-      <div>
-        <h1>This is a test</h1>
-        <FormComponent
-        data={this.state}
-        handleOnChange={this.handleOnChange}
-        handleSubmit={this.handleSubmit}
-        handleCheck={this.handleCheck}
-        restrictions={this.restrictions}
-        />
-      </div>
-    )
-  }
-}
+//     return(
+//       <div>
+//         <h1>This is a test</h1>
+//         <FormComponent
+//         data={this.state}
+//         handleOnChange={this.handleOnChange}
+//         handleSubmit={this.handleSubmit}
+//         handleCheck={this.handleCheck}
+//         restrictions={this.restrictions}
+//         />
+//       </div>
+//     )
+//   }
+// }
 
-export {App}
+
 
 
 // <br/>
@@ -361,3 +362,17 @@ export {App}
 // onChange={this.handleOnChange}
 // /> None of the above</label>
 // <br/>          
+
+
+// meme generator Application
+
+function App(){
+  return(
+    <div>
+        <Header/>
+        <Memegenerator/>
+    </div>
+  )
+}
+
+export {App}

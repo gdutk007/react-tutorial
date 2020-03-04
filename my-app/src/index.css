@@ -44,3 +44,29 @@ background-color: whitesmoke;}
 .contact-card{
   
 }
+
+.meme{
+  text-align: center;
+}
+
+.imagecss{
+  position: relative;
+}
+
+.h21{
+  z-index: 100;
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  left: 150px;
+  top: 350px;
+}
+
+.h22{
+  z-index: 100;
+  position: absolute;
+  font-size: 24px;
+  font-weight: bold;
+  left: 150px;
+  top: 380px;
+}
